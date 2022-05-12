@@ -36,6 +36,5 @@ jobs:
       - run: node-build --version
       - run: zig version
       - run: |
-          export CC="zig cc" 
-          node-build --compile --verbose "${{ matrix.version }}" "./output"
+          CC="zig cc" node-build --compile --verbose "${{ matrix.version }}" "./output"
       - run: ls output
