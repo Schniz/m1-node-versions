@@ -35,3 +35,6 @@ jobs:
           PREFIX=/usr/local sudo ./node-build/install.sh
       - run: node-build --version
       - run: zig version
+      - run: |
+          CC="zig cc" node-build -c "${{ matrix.version }}" "./output"
+      - run: ls output
