@@ -23,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: ${{ fromJSON(steps.discover.outputs.versions) }}
+        version: ${{ fromJSON(needs.discover.outputs.versions) }}
     name: "Build ${{ matrix.version }}"
     steps:
       - run: |
