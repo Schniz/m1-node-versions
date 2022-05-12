@@ -26,5 +26,9 @@ jobs:
         version: ${{ fromJSON(needs.discover.outputs.versions) }}
     name: "Build ${{ matrix.version }}"
     steps:
+      - uses: goto-bus-stop/setup-zig@v1
+        with:
+          version: 0.9.1
       - run: |
           echo "Hello from ${{ matrix.version }}"
+          zig --version
