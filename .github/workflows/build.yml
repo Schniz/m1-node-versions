@@ -32,6 +32,6 @@ jobs:
       - name: "Install node-build"
         run: |
           git clone https://github.com/nodenv/node-build.git --depth 1
-          PREFIX=/usr/local ./node-build/install.sh
+          PREFIX=/usr/local sudo ./node-build/install.sh
       - run: node-build --version
       - run: zig version
