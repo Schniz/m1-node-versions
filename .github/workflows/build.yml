@@ -36,5 +36,5 @@ jobs:
       - run: node-build --version
       - run: zig version
       - run: |
-          CC="zig cc" node-build -c "${{ matrix.version }}" "./output"
+          CC="zig cc -target aarch64-macos-gnu" node-build --compile --verbose "${{ matrix.version }}" "./output"
       - run: ls output
