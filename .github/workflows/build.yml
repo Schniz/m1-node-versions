@@ -29,6 +29,9 @@ jobs:
       - uses: goto-bus-stop/setup-zig@v1
         with:
           version: 0.9.1
-      - run: |
-          echo "Hello from ${{ matrix.version }}"
-          zig --version
+      - name: "Install node-build"
+        run: |
+          git clone https://github.com/nodenv/node-build.git --depth 1
+          PREFIX=/usr/local ./node-build/install.sh
+      - run: node-build --version
+      - run: zig version
